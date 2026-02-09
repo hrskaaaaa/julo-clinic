@@ -9,7 +9,16 @@ $color-brand-dark: #6B5A4E;
 // cards
 $color-secondary-light: #F3DED0;
 $color-secondary-dark: #E3C9B8;
+// breakpoints
+$bp-tablet: 1024px;
 
+$bp-desktop: 1440px;
+
+@mixin up($bp) {
+    @media (min-width:$bp) {
+        @content;
+    }
+}
 
 * {
     box-sizing: border-box;
@@ -38,12 +47,28 @@ h2 {
     font-weight: 600;
     font-size: 24px;
     letter-spacing: 0.04rem;
+
+    @include up($bp-tablet) {
+        font-size: 36px;
+    }
+
+    @include up($bp-desktop) {
+        font-size: 48px;
+    }
 }
 
 h3 {
     font-weight: 500;
     font-size: 20px;
     letter-spacing: 0.08rem;
+
+    @include up($bp-tablet) {
+        font-size: 24px;
+    }
+
+    @include up($bp-desktop) {
+        font-size: 32px;
+    }
 }
 
 a,
@@ -56,13 +81,16 @@ p {
 
 a {
     display: inline-block;
+    text-decoration: none;
 }
 
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+
 }
+
 
 .visually-hidden {
     position: absolute;
@@ -77,6 +105,14 @@ ul {
 .container {
     width: 100%;
     padding: 0px 16px;
+
+    @include up($bp-tablet) {
+        padding: 0px 32px;
+    }
+
+    @include up($bp-desktop) {
+        padding: 0px 120px;
+    }
 }
 
 .btn {
@@ -88,6 +124,18 @@ ul {
     padding: 8px 16px;
     width: fit-content;
     font-size: 16px;
+    cursor: pointer;
+
+    @include up($bp-tablet) {
+        padding: 16px 32px;
+        font-size: 20px;
+        border-radius: 12px;
+    }
+
+    @include up($bp-desktop) {
+        font-size: 24px;
+
+    }
 
 }
 
@@ -100,29 +148,53 @@ ul {
         display: flex;
         align-items: center;
         padding: 8px 0;
-    }
 
-    .header-nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex: 1;
 
-        .header-logo {
+        .header-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             flex: 1;
+
+            .header-logo {
+                flex: 1;
+            }
+
+            .burger-btn {
+                border: none;
+                background-color: transparent;
+
+                @include up($bp-tablet) {
+                    display: none;
+                }
+
+
+            }
+
+            .nav-list {
+                display: none;
+
+                @include up($bp-tablet) {
+                    display: flex;
+                    flex: 1;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 20px;
+
+
+                    .header-btn {
+                        padding: 8px 24px;
+                        width: 100%;
+                    }
+                }
+
+                @include up($bp-desktop) {
+                    font-size: 24px;
+                }
+            }
         }
 
-        .burger-btn {
-            border: none;
-            background-color: transparent;
-        }
 
-        .nav-list {
-            display: none;
-            // display: flex;
-            // flex: 1;
-            // justify-content: space-between;
-        }
     }
 }
 
@@ -134,17 +206,47 @@ ul {
     padding-top: 24px;
     padding-bottom: 36px;
 
+    @include up($bp-tablet) {
+        padding-top: 0px;
+    }
+
     .hero-container {
         display: flex;
 
+
+        @include up($bp-tablet) {
+            gap: 32px;
+            height: 100%;
+            align-items: center;
+            flex: 1;
+        }
+
+        @include up($bp-desktop) {
+            gap: 24px;
+        }
+
         .hero-image {
             display: none;
+
+            @include up($bp-tablet) {
+                display: inline-block;
+                width: 100%;
+                height: auto;
+                flex: 1;
+            }
+
+
         }
 
         .hero-content {
             display: flex;
             flex-direction: column;
             gap: 80px;
+
+            @include up($bp-desktop) {
+                height: 100%;
+                flex: 1;
+            }
 
             .hero-text {
                 display: flex;
