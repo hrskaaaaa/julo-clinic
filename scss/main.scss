@@ -288,32 +288,74 @@ ul {
 .about-section {
     padding: 32px 0;
 
+    @include up($bp-tablet) {
+        padding-top: 96px;
+    }
+
+    @include up($bp-desktop) {
+        padding-top: 120px;
+    }
+
     .about-container {
         display: flex;
         flex-direction: column;
-        // justify-content: center;
         align-items: center;
         gap: 32px;
 
-        .about-content {
+        @include up($bp-tablet) {
+            flex-direction: row;
+            /* Додаємо вирівнювання по центру та justify-content для проміжку */
+            align-items: center;
+            justify-content: center;
+            /* Це допоможе з проміжком, якщо flex-basis не спрацює */
+            gap: 20px;
+            /* Проміжок 20px між елементами */
+        }
+
+        .about-header {
+            order: 1;
+
+            @include up($bp-tablet) {
+                order: 2;
+                /* Використовуємо flex-basis замість flex: 1, щоб зберегти 20px gap */
+                /* flex: 1; */
+                flex-basis: calc(50% - 10px);
+                /* 50% ширини мінус половина gap */
+                text-align: left;
+                /* Вирівнювання заголовка ліворуч, якщо потрібно */
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            order: 2;
+
+            @include up($bp-tablet) {
+                order: 1;
+                /* Використовуємо flex-basis замість flex: 1 для зображення */
+                /* flex: 1; */
+                flex-basis: calc(50% - 10px);
+                /* 50% ширини мінус половина gap */
+            }
+        }
+
+        .about-text {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 32px;
+            gap: 16px;
+            order: 3;
+            /* Додаємо вирівнювання по центру для тексту */
+            justify-content: center;
 
-            img {
-                max-width: 100%;
-                height: auto;
-            }
-
-            .about-text {
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
+            @include up($bp-tablet) {
+                order: 2;
+                /* flex: 1; */
+                flex-basis: calc(50% - 10px);
+                /* 50% ширини мінус половина gap */
             }
         }
     }
-
 }
 
 // services

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
 }
@@ -256,26 +257,76 @@ ul {
 .about-section {
   padding: 32px 0;
 }
+@media (min-width: 768px) {
+  .about-section {
+    padding-top: 96px;
+  }
+}
+@media (min-width: 1440px) {
+  .about-section {
+    padding-top: 120px;
+  }
+}
 .about-section .about-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 32px;
 }
-.about-section .about-container .about-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 32px;
+@media (min-width: 768px) {
+  .about-section .about-container {
+    flex-direction: row;
+    /* Додаємо вирівнювання по центру та justify-content для проміжку */
+    align-items: center;
+    justify-content: center;
+    /* Це допоможе з проміжком, якщо flex-basis не спрацює */
+    gap: 20px;
+    /* Проміжок 20px між елементами */
+  }
 }
-.about-section .about-container .about-content img {
+.about-section .about-container .about-header {
+  order: 1;
+}
+@media (min-width: 768px) {
+  .about-section .about-container .about-header {
+    order: 2;
+    /* Використовуємо flex-basis замість flex: 1, щоб зберегти 20px gap */
+    /* flex: 1; */
+    flex-basis: calc(50% - 10px);
+    /* 50% ширини мінус половина gap */
+    text-align: left;
+    /* Вирівнювання заголовка ліворуч, якщо потрібно */
+  }
+}
+.about-section .about-container img {
   max-width: 100%;
   height: auto;
+  order: 2;
 }
-.about-section .about-container .about-content .about-text {
+@media (min-width: 768px) {
+  .about-section .about-container img {
+    order: 1;
+    /* Використовуємо flex-basis замість flex: 1 для зображення */
+    /* flex: 1; */
+    flex-basis: calc(50% - 10px);
+    /* 50% ширини мінус половина gap */
+  }
+}
+.about-section .about-container .about-text {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  order: 3;
+  /* Додаємо вирівнювання по центру для тексту */
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .about-section .about-container .about-text {
+    order: 2;
+    /* flex: 1; */
+    flex-basis: calc(50% - 10px);
+    /* 50% ширини мінус половина gap */
+  }
 }
 
 .services-section {
