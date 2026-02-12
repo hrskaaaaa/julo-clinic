@@ -1,11 +1,10 @@
-@charset "UTF-8";
 * {
   box-sizing: border-box;
 }
 
 body {
-  color: #4B3C35;
-  background-color: #FFF5F2;
+  color: #4b3c35;
+  background-color: #fff5f2;
   margin: 0;
   line-height: 1.5;
 }
@@ -18,7 +17,7 @@ h5,
 h6 {
   margin: 0;
   font-family: "Playfair Display", serif;
-  color: #2F2621;
+  color: #2f2621;
 }
 
 h1 {
@@ -71,7 +70,7 @@ h3 {
 a,
 p {
   font-family: "Montserrat", sans-serif;
-  color: #4B3C35;
+  color: #4b3c35;
   line-height: 1.5;
   margin: 0;
 }
@@ -112,8 +111,8 @@ ul {
 }
 
 .btn {
-  background-color: #6B5A4E;
-  color: #FBF8F5;
+  background-color: #6b5a4e;
+  color: #fbf8f5;
   border-radius: 8px;
   font-family: "Montserrat", sans-serif;
   border: none;
@@ -275,57 +274,44 @@ ul {
 }
 @media (min-width: 768px) {
   .about-section .about-container {
-    flex-direction: row;
-    /* Додаємо вирівнювання по центру та justify-content для проміжку */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "image title" "image text";
+    gap: 24px 32px;
+    justify-items: start;
     align-items: center;
-    justify-content: center;
-    /* Це допоможе з проміжком, якщо flex-basis не спрацює */
-    gap: 20px;
-    /* Проміжок 20px між елементами */
   }
-}
-.about-section .about-container .about-header {
-  order: 1;
 }
 @media (min-width: 768px) {
-  .about-section .about-container .about-header {
-    order: 2;
-    /* Використовуємо flex-basis замість flex: 1, щоб зберегти 20px gap */
-    /* flex: 1; */
-    flex-basis: calc(50% - 10px);
-    /* 50% ширини мінус половина gap */
-    text-align: left;
-    /* Вирівнювання заголовка ліворуч, якщо потрібно */
+  .about-section .about-container .about-title {
+    align-self: end;
   }
 }
-.about-section .about-container img {
+.about-section .about-container .about-image {
   max-width: 100%;
   height: auto;
-  order: 2;
 }
 @media (min-width: 768px) {
-  .about-section .about-container img {
-    order: 1;
-    /* Використовуємо flex-basis замість flex: 1 для зображення */
-    /* flex: 1; */
-    flex-basis: calc(50% - 10px);
-    /* 50% ширини мінус половина gap */
+  .about-section .about-container .about-image {
+    grid-area: image;
+    width: 100%;
   }
 }
 .about-section .about-container .about-text {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  order: 3;
-  /* Додаємо вирівнювання по центру для тексту */
-  justify-content: center;
 }
 @media (min-width: 768px) {
   .about-section .about-container .about-text {
-    order: 2;
-    /* flex: 1; */
-    flex-basis: calc(50% - 10px);
-    /* 50% ширини мінус половина gap */
+    grid-area: text;
+    align-self: start;
+    font-size: 20px;
+  }
+}
+@media (min-width: 1440px) {
+  .about-section .about-container .about-text {
+    font-size: 24px;
   }
 }
 
@@ -350,7 +336,7 @@ ul {
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  background-color: #F3DED0;
+  background-color: #f3ded0;
   padding: 24px;
   border-radius: 96px 96px 0 0;
   text-align: center;
@@ -413,7 +399,7 @@ ul {
   gap: 32px;
 }
 .reviews-section .reviews-container .reviews-list .review-item {
-  background-color: #F3DED0;
+  background-color: #f3ded0;
   padding: 24px 32px;
   display: flex;
   flex-direction: column;
@@ -448,19 +434,19 @@ ul {
   border-bottom: 1px rgba(47, 38, 33, 0.7) solid;
   padding: 8px 0;
   margin-bottom: 40px;
-  color: #2F2621;
+  color: #2f2621;
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
   letter-spacing: 0.08rem;
 }
 .cta-section .cta-container .cta-form .form-input::-moz-placeholder {
-  color: #2F2621;
+  color: #2f2621;
   letter-spacing: 0.08rem;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
 }
 .cta-section .cta-container .cta-form .form-input::placeholder {
-  color: #2F2621;
+  color: #2f2621;
   letter-spacing: 0.08rem;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
@@ -493,7 +479,7 @@ ul {
 }
 .footer .footer-nav .footer-contacts a,
 .footer .footer-nav .footer-contacts a:visited {
-  color: #2F2621;
+  color: #2f2621;
   font-style: normal;
   text-decoration: none;
 }
