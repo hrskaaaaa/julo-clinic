@@ -491,16 +491,43 @@ ul {
 .reviews-section {
   padding: 32px 0 64px;
 
+  @include up($bp-tablet) {
+    padding: 96px 0;
+  }
+
+  @include up($bp-desktop) {
+    padding-bottom: 120px;
+  }
+
   .reviews-container {
     display: flex;
     flex-direction: column;
     gap: 32px;
     align-items: center;
 
+    @include up($bp-tablet) {
+      gap: 48px;
+    }
+
+    @include up($bp-desktop) {
+      gap: 56px;
+    }
+
     .reviews-list {
       display: flex;
       flex-direction: column;
       gap: 32px;
+
+      @include up($bp-tablet) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        row-gap: 64px;
+      }
+
+      @include up($bp-desktop) {
+        width: 100%;
+      }
 
       .review-item {
         background-color: $color-secondary-light;
@@ -509,6 +536,26 @@ ul {
         flex-direction: column;
         justify-content: space-between;
         min-height: 234px;
+        max-width: 385px;
+
+        @include up($bp-tablet) {
+          flex: 0 1 calc(50% - 20px);
+          max-width: 385;
+          &:last-child:nth-child(odd) {
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
+
+        @include up($bp-desktop) {
+          flex: 0 1 calc(33.333% - 40px);
+          max-width: 300px;
+
+          &:last-child:nth-child(odd) {
+            margin-left: 0;
+            margin-right: 0;
+          }
+        }
       }
     }
   }
