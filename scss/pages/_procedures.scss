@@ -1,0 +1,109 @@
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+
+// procedures
+.procedures-hero-section {
+  padding: 64px 0;
+  @include up($bp-tablet) {
+    padding: 72px 0 96px;
+  }
+  @include up($bp-desktop) {
+    padding: 96px 0;
+  }
+  .procedures-hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+    @include up($bp-tablet) {
+      gap: 72px;
+    }
+
+    .procedures-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      width: 100%;
+
+      @include up($bp-tablet) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px;
+        row-gap: 48px;
+      }
+
+      .list-item {
+        @include up($bp-tablet) {
+          &:last-child:nth-child(odd) {
+            flex-basis: 100%;
+            display: flex;
+            justify-content: center;
+          }
+        }
+
+        @include up($bp-desktop) {
+          &:last-child:nth-child(odd) {
+            flex-basis: auto;
+            display: block;
+          }
+        }
+
+        .card-container {
+          width: clamp(327px, 30vw, 340px);
+          min-height: 377px;
+          background-size: cover;
+          background-position: center;
+          position: relative;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          overflow: hidden;
+          padding-bottom: 48px;
+          text-align: center;
+
+          p {
+            color: $color-brand-normal;
+            font-size: 20px;
+
+            @include up($bp-tablet) {
+              font-size: 32px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//treatment
+.treatment-section {
+  padding-bottom: 64px;
+
+  .treatment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    .treatment-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      p {
+        font-size: 16px;
+        letter-spacing: 0.08rem;
+
+        @include up($bp-tablet) {
+          font-size: 20px;
+        }
+
+        @include up($bp-tablet) {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
