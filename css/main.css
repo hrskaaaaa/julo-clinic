@@ -73,7 +73,6 @@ p {
   color: #4b3c35;
   line-height: 1.5;
   margin: 0;
-  font-size: 16px;
 }
 
 a {
@@ -552,13 +551,54 @@ ul {
   background-size: cover;
   padding: 48px 0;
 }
+@media (min-width: 768px) {
+  .cta-section {
+    background-color: #fdebdb;
+    background-image: none;
+    padding: 0;
+  }
+}
 .cta-section .cta-container {
   display: flex;
   flex-direction: column;
-  gap: 64px;
+}
+@media (min-width: 768px) {
+  .cta-section .cta-container {
+    flex-direction: row;
+    gap: 32px;
+    max-height: 618px;
+  }
+}
+@media (min-width: 1440px) {
+  .cta-section .cta-container {
+    gap: 96px;
+  }
 }
 .cta-section .cta-container img {
   display: none;
+}
+@media (min-width: 768px) {
+  .cta-section .cta-container img {
+    display: block;
+    flex: 0 1 50%;
+    opacity: 0.7;
+    width: 100%;
+    height: auto;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.cta-section .cta-container .cta-content {
+  flex: 0 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 64px;
+}
+@media (min-width: 768px) {
+  .cta-section .cta-container .cta-content {
+    padding: 56px 0;
+  }
 }
 .cta-section .cta-container .cta-text p {
   margin-top: 8px;
@@ -578,6 +618,7 @@ ul {
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
   letter-spacing: 0.08rem;
+  cursor: text;
 }
 .cta-section .cta-container .cta-form .form-input::-moz-placeholder {
   color: #2f2621;
@@ -590,6 +631,22 @@ ul {
   letter-spacing: 0.08rem;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
+}
+@media (min-width: 768px) {
+  .cta-section .cta-container .cta-form .form-input::-moz-placeholder {
+    font-size: 20px;
+  }
+  .cta-section .cta-container .cta-form .form-input::placeholder {
+    font-size: 20px;
+  }
+}
+@media (min-width: 768px) {
+  .cta-section .cta-container .cta-form .form-input::-moz-placeholder {
+    font-size: 24px;
+  }
+  .cta-section .cta-container .cta-form .form-input::placeholder {
+    font-size: 24px;
+  }
 }
 .cta-section .cta-container .cta-form .form-input:focus {
   cursor: pointer;
@@ -610,6 +667,11 @@ ul {
   align-items: center;
   gap: 16px;
 }
+@media (min-width: 768px) {
+  .footer .footer-nav {
+    gap: 32px;
+  }
+}
 .footer .footer-nav .footer-text,
 .footer .footer-nav .footer-contacts {
   display: flex;
@@ -617,17 +679,27 @@ ul {
   align-items: center;
   gap: 8px;
 }
+@media (min-width: 768px) {
+  .footer .footer-nav .footer-text p {
+    font-size: 24px;
+  }
+}
 .footer .footer-nav .footer-contacts a,
 .footer .footer-nav .footer-contacts a:visited {
   color: #2f2621;
   font-style: normal;
   text-decoration: none;
 }
+@media (min-width: 768px) {
+  .footer .footer-nav .footer-contacts a,
+  .footer .footer-nav .footer-contacts a:visited {
+    font-size: 20px;
+  }
+}
 .footer .footer-nav .footer-contacts a:hover {
   cursor: pointer;
 }
 .footer .footer-nav .footer-media {
-  margin-top: 16px;
   display: flex;
   justify-content: center;
   gap: 16px;
