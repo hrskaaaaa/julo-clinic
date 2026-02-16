@@ -1,0 +1,54 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.footer {
+  padding: 48px 0;
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    @include up($bp-tablet) {
+      gap: 32px;
+    }
+
+    .footer-text,
+    .footer-contacts {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-text p {
+      @include up($bp-tablet) {
+        font-size: 24px;
+      }
+    }
+
+    .footer-contacts {
+      a,
+      a:visited {
+        color: $color-primary-dark;
+        font-style: normal;
+        text-decoration: none;
+
+        @include up($bp-tablet) {
+          font-size: 20px;
+        }
+      }
+
+      a:hover {
+        cursor: pointer;
+      }
+    }
+
+    .footer-media {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+  }
+}
