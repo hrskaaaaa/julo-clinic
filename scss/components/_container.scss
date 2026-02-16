@@ -1,0 +1,15 @@
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+
+.container {
+  width: 100%;
+  padding: 0px 16px;
+
+  @include up($bp-tablet) {
+    padding: 0px 32px;
+  }
+
+  @include up($bp-desktop) {
+    padding: 0px 120px;
+  }
+}

@@ -1,0 +1,24 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.btn {
+  background-color: $color-brand-dark;
+  color: $color-primary-light;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  padding: 8px 16px;
+  width: fit-content;
+  font-size: 16px;
+  cursor: pointer;
+
+  @include up($bp-tablet) {
+    padding: 16px 32px;
+    font-size: 20px;
+    border-radius: 12px;
+  }
+
+  @include up($bp-desktop) {
+    font-size: 24px;
+  }
+}
